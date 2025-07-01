@@ -1,97 +1,138 @@
 * {
-  border: none;
-  font-size: 18px;
-  font-family: "JetBrainsMono Nerd Font";
-  min-height: 25px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 13px;
 }
 
 window#waybar {
-  background: transparent;
-  margin: 5px;
+    background-color: #181825;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.5;
+}
+
+#workspaces {
+    background-color: transparent;
+}
+
+#workspaces button {
+    all: initial;
+    /* Remove GTK theme values (waybar #1351) */
+    min-width: 0;
+    /* Fix weird spacing in materia (waybar #450) */
+    box-shadow: inset 0 -3px transparent;
+    /* Use box-shadow instead of border so the text isn't offset */
+    padding: 6px 18px;
+    margin: 6px 3px;
+    border-radius: 4px;
+    background-color: #DCBEFF;
+    color: #181825;
+}
+
+#workspaces button.active {
+    color: #1e1e2e;
+    background-color: #D4A5FF;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: #1e1e2e;
+    background-color: #D4A5FF;
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8;
+}
+
+#cpu,
+#memory,
+#custom-power,
+#battery,
+#backlight,
+#wireplumber,
+#network,
+#clock,
+#tray {
+    border-radius: 4px;
+    margin: 6px 3px;
+    padding: 6px 12px;
+    background-color: #1e1e2e;
+    color: #181825;
+}
+
+#custom-power {
+    margin-right: 6px;
 }
 
 #custom-logo {
-  padding: 0 10px;
-  color: skyblue;
-}
-
-.modules-right {
-  padding-left: 5px;
-  border-radius: 15px 0 0 15px;
-  margin-top: 2px;
-  background: #000000;
-}
-
-.modules-center {
-  padding: 0 15px;
-  margin-top: 2px;
-  border-radius: 15px 15px 15px 15px;
-  background: #000000;
-}
-
-.modules-left {
-  padding-right: 5px;
-  border-radius: 0 15px 15px 0;
-  margin-top: 2px;
-  background: #000000;
-}
-
-#battery,
-#bluetooth,
-#pulseaudio,
-#network,
-#memory,
-#cpu,
-#temperature,
-#workspaces,
-#clock {
-  padding: 0 5px;
-}
-
-#memory {
-  color: yellow;
+    padding-right: 7px;
+    padding-left: 7px;
+    margin-left: 5px;
+    font-size: 15px;
+    border-radius: 8px 0px 0px 8px;
+    color: #1793d1;
 }
 
 #cpu {
-  color: green;
+    background-color: #BEFFE2;
 }
 
-#temperature {
-  color: red;
+#memory {
+    background-color: #D2FC8A;
 }
 
-#pulseaudio.muted {
-  color: #ff0000;
-  padding-top: 0;
+#battery {
+    background-color: #f38ba8;
 }
 
-#clock {
-  color: #5fd1fa;
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+    background-color: #ff0000;
+    color: #FFFF00;
 }
 
 #battery.charging {
-  color: #ffffff;
-  background-color: #26a65b;
+    background-color: #a6e3a1;
+    color: #181825;
 }
 
-#battery.warning:not(.charging) {
-  background-color: #ffbe61;
-  color: black;
+#backlight {
+    background-color: #fab387;
 }
 
-#battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#wireplumber {
+    background-color: #FCD28A;
 }
 
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
+#network {
+    background-color: #FFF181;
+    padding-right: 17px;
+}
+
+#clock {
+    font-family: JetBrainsMono Nerd Font;
+    background-color: #BED2FF;
+}
+
+#custom-power {
+    background-color: #FF9E76;
+}
+
+
+tooltip {
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #131822;
+}
+
+tooltip label {
+    padding: 5px;
+    background-color: #131822;
 }
